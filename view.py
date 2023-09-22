@@ -1,3 +1,4 @@
+import time
 
 def dialogNewNote():
     head=input("Введите тему сообщения")
@@ -5,10 +6,22 @@ def dialogNewNote():
     return head,boody
 
 def confirm():
-    c=input("Удалить запись   ->y/n")
+    c=input("Вы уверены?   ->y/n")
     if c=="y":
         return True
     return False
+
+def delete():
+    num=input("Введите номер записи которую хотите удалить")
+    if num.isdigit():
+        return int(num)
+    return -1
+    
+def edit():
+    num=input("Введите номер записи которую хотите редактировать")
+    if num.isdigit():
+        return int(num)
+    return -1       
 
 def menu():
     print("----------Меню-----------")
@@ -25,12 +38,13 @@ def menu():
 def notesOutput(arr):
     print(*arr)
 
-def subMenu():
+def searchDialog():
     print("Поиск")
     print("Поиск по номеру              ->a")
     print("Поиск по теме                ->s")
     print("Поиск по фразам в сообщении  ->d")
     print("Поиск по дате                ->f")
+    return input("Делайте выбор")
     
 def dialogChooseNum():
     return int(input("Введите номер записи"))
@@ -42,4 +56,18 @@ def dialogChooseBoody():
     return input("Введите слово или словосочетание из сообщения")
     
 def dialogChooseDate():
-    return input("Введите дату")
+    return time.strptime(input("Введите дату по типу: Г,М,Д"),"%Y,%m,%d")
+
+def editDialog():
+    print("Редактировать тему      ->a")
+    print("Редактировать сообщение ->s")
+    return input("Делайте выбор")
+
+def headEdit():
+    return input("Введите новую тему сообщения")
+
+def bodyEdit():
+    return input("Введите новое сообщение")
+
+def error():
+    print("Ошибка ввода!")
