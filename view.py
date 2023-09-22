@@ -1,3 +1,4 @@
+##Alex Olhovskiy
 import time
 
 def dialogNewNote():

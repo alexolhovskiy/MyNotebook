@@ -1,3 +1,4 @@
+##Alex Olhovskiy
 from tkinter import *
 from tkinter import ttk
 import time
